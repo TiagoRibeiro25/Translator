@@ -20,7 +20,7 @@ An IDE is also recommended, but not required.
 #### Clone the repository
 
 ```bash
-git clone <TODO>
+git clone <https://github.com/TiagoRibeiro25/Translator.git>
 ```
 
 #### Install dependencies
@@ -66,7 +66,7 @@ This will create a build folder in the Client folder. You can then copy the buil
 
 ## Live Demo
 
-You can find a live demo of the application [here](TODO).
+You can find a live demo of the application [here](https://text-translator.up.railway.app/).
 
 ## Made with
 
