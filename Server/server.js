@@ -6,7 +6,7 @@ const app = express();
 const deepl = require("deepl-node");
 const translator = new deepl.Translator(process.env.DEEPL_API_KEY);
 
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.static("public"));
