@@ -11,7 +11,7 @@ body {
   height: 100vh;
 }
 
-.App > h1 {
+.App h1 {
   font-size: 2.5rem;
   font-weight: 500;
   color: #333333;
@@ -19,6 +19,24 @@ body {
   animation: slide-up 1s ease-in-out;
 }
 
-.App > h1 a:hover {
+.App h1 a:hover {
   text-shadow: 0 0 10px rgba(31, 208, 252, 0.2);
+}
+
+.made-by-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: grey;
+}
+
+.made-by-info a {
+  color: grey;
+  text-decoration: none;
+}
+
+.made-by-info a:hover {
+  color: #1fd0fc;
+  text-decoration: underline;
 }

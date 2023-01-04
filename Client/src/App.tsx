@@ -3,6 +3,17 @@ import Translator from "./components/Translator";
 function App() {
   return (
     <div className="App">
+      <div className="made-by-info">
+        Made by{" "}
+        <a
+          href="https://github.com/TiagoRibeiro25"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tiago Ribeiro
+        </a>
+      </div>
+
       <h1>
         Translator - Made with{" "}
         <a
