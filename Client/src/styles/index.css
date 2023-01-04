@@ -1,0 +1,24 @@
+body {
+  background-color: #f0f0f0;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.App > h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin-top: 0;
+  animation: slide-up 1s ease-in-out;
+}
+
+.App > h1 a:hover {
+  text-shadow: 0 0 10px rgba(31, 208, 252, 0.2);
+}
