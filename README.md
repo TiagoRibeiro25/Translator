@@ -45,7 +45,7 @@ In the Server folder, create a .env file and add your DeepL API key to it.
 To run the application, go to the Server folder and run the following command to start the server.
 
 ```bash
-npm start
+npm run start
 ```
 
 I added nodemon to the project, so the server will automatically restart when you make changes to the code. To use nodemon, run the following command instead.
