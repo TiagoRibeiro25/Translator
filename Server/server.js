@@ -12,6 +12,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(express.static("public"));
 
 async function translate(text, source, target) {
+  source = source === "auto-detect" ? null : source;
   const result = await translator.translateText(text, source, target);
   return result;
 }
@@ -19,7 +20,7 @@ async function translate(text, source, target) {
 // Translate text
 app.post("/translate", async (req, res) => {
   const text = req.body.text;
-  const source = req.body.source === "auto-detect,Auto-Detect" ? null : req.body.source;
+  const source = req.body.source;
   const target = req.body.target;
 
   let result;
