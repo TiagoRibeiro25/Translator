@@ -30,6 +30,12 @@ class Translator extends React.Component {
         targetLanguage: getLocalStorage("targetLanguage") || data.target_lang[0],
       });
     });
+
+    // Save the source and target languages to local storage
+    window.addEventListener("beforeunload", () => {
+      setLocalStorage("sourceLanguage", this.state.sourceLanguage);
+      setLocalStorage("targetLanguage", this.state.targetLanguage);
+    });
   }
 
   // Send a POST request to the server with the input text
@@ -37,10 +43,6 @@ class Translator extends React.Component {
     // Get the input text
     const text: string = e.target.value;
     this.setState({ inputText: text });
-
-    // Save the source and target languages to local storage
-    setLocalStorage("sourceLanguage", this.state.sourceLanguage);
-    setLocalStorage("targetLanguage", this.state.targetLanguage);
 
     // If the input text is empty, reset the output text
     if (text.length === 0) {
