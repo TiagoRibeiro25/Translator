@@ -8,7 +8,7 @@ const translator = new deepl.Translator(process.env.DEEPL_API_KEY);
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json({ limit: "5mb" }));
 app.use(express.static("public"));
 
 async function translate(text, source, target) {
@@ -19,25 +19,31 @@ async function translate(text, source, target) {
 // Translate text
 app.post("/translate", async (req, res) => {
   const text = req.body.text;
-  const source = req.body.source === "auto-detect" ? null : req.body.source;
+  const source = req.body.source === "auto-detect,Auto-Detect" ? null : req.body.source;
   const target = req.body.target;
 
-  let result =
-    "We couldn't translate your text. Please try again or contact the developer.";
+  let result;
 
   try {
     result = await translate(text, source, target);
   } catch (error) {
     console.log(`There was an error while translating text: ${error}`);
+    result = null;
   }
 
   const resultDetails = req.body;
   resultDetails.status = result ? "success" : "failed";
   resultDetails.date = new Date().toLocaleString();
 
-  console.table(resultDetails);
+  console.log(resultDetails);
 
-  res.send(result);
+  res.send(
+    result
+      ? result
+      : {
+          text: "We couldn't translate your text. Please try again or contact the developer.",
+        }
+  );
 });
 
 // Get Supported Languages
